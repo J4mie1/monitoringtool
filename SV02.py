@@ -272,7 +272,7 @@ filenaam = __file__
 
 # ohai
 
-#os.system("git init")
+os.system("git init")
 os.system("git add " + str(filenaam))
 os.system("git commit -m 'commit'")
 os.system("git pull origin master")
