@@ -270,7 +270,9 @@ from lib.layout import footer
 
 filenaam = __file__
 
-os.system("git init")
+# ohai
+
+#os.system("git init")
 os.system("git add " + str(filenaam))
 os.system("git commit -m 'commit'")
 os.system("git pull origin master")
