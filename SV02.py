@@ -2,7 +2,10 @@
 print("Content-Type: text/html; charset=utf-8\n")
 
 from lib import classes
+import subprocess
 import os
+import git
+
 
 # settings
 host                = '192.168.34.179'
@@ -272,9 +275,39 @@ filenaam = __file__
 
 # ohai
 
-os.system("git init")
-os.system("git add " + str(filenaam))
-os.system("git commit -m 'commit'")
-os.system("git pull origin master")
-os.system("git remote add origin https://github.com/J4mie1/monitoringtool.git")
-os.system("git push -u origin master")
+
+"""
+p = subprocess.Popen("git init", stdout=subprocess.PIPE)
+p.communicate()
+p = subprocess.Popen("git add " + str(filenaam) + "", stdout=subprocess.PIPE)
+p.communicate()
+p = subprocess.Popen("git commit -m 'commit'", stdout=subprocess.PIPE)
+p.communicate()
+p = subprocess.Popen("git pull origin master", stdout=subprocess.PIPE)
+p.communicate()
+p = subprocess.Popen("git remote add origin https://github.com/J4mie1/monitoringtool.git", stdout=subprocess.PIPE)
+p.communicate()
+p = subprocess.Popen("git push -u origin master", stdout=subprocess.PIPE)
+p.communicate()
+"""
+
+#os.popen("git init")
+
+"""
+os.popen("git add " + str(filenaam))
+os.popen("git commit -m 'commit'")
+os.popen("git pull origin master")
+os.popen("git remote add origin https://github.com/J4mie1/monitoringtool.git")
+os.popen("git push -u origin master")
+"""
+
+repo = git.Repo( '/Applications/XAMPP/xamppfiles/htdocs/monitoringtool' )
+print (repo.git.status())
+# checkout and track a remote branch
+#print repo.git.checkout( 'origin/monitoringtool', b='somebranch' )
+# add a file
+print (repo.git.add( filenaam ))
+# commit
+print (repo.git.commit( m='my commit message' ))
+# now we are one commit ahead
+print (repo.git.status())
