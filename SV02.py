@@ -270,9 +270,9 @@ from lib.layout import footer
 
 filenaam = __file__
 
-os.popen("git init")
-os.popen("git add " + str(filenaam))
-os.popen("git commit -m 'commit'")
-os.popen("git pull origin master")
-os.popen("git remote add origin https://github.com/J4mie1/monitoringtool.git")
-os.popen("git push -u origin master")
+os.system("git init")
+os.system("git add " + str(filenaam))
+os.system("git commit -m 'commit'")
+os.system("git pull origin master")
+os.system("git remote add origin https://github.com/J4mie1/monitoringtool.git")
+os.system("git push -u origin master")
